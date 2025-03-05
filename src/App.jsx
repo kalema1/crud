@@ -1,5 +1,11 @@
+import SearchUser from "./components/searchUser/SearchUser";
+
 function App() {
-  return <div>Hello world</div>;
+  return (
+    <>
+      <SearchUser />
+    </>
+  );
 }
 
 export default App;
