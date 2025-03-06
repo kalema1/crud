@@ -33,7 +33,7 @@
 
 .addUserInput::placeholder {
   color: var(--color-text);
-  font-size: 2cap;
+  font-size: 2rem;
   font-family: var(--font-family);
 }
 

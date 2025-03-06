@@ -1,0 +1,74 @@
+.usersSection {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.wrapper {
+  padding: 0 2rem;
+}
+
+.userheading {
+  color: var(--color-text);
+  margin: 2rem 0;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.tableHeader {
+  text-align: left;
+  background-color: var(--color-green-dark);
+  color: var(--color-white);
+  font-size: 1.6rem;
+}
+
+.tableData {
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+
+.tableData,
+.tableHeader {
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #ddd;
+}
+
+.tableRow:hover {
+  background-color: #999;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.editIcon {
+  color: var(--color-green-dark);
+  font-size: 2rem;
+}
+
+.deleteIcon {
+  color: red;
+  font-size: 2rem;
+}

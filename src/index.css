@@ -6,10 +6,16 @@
   --color-background: #f1f5f9;
   --font-family: "Roboto", sans-serif;
   --color-text: #333;
+  --color-green-dark: #14532d;
 }
 
 html {
   font-size: 62.5%;
+}
+
+body,
+html {
+  overflow-x: hidden;
 }
 
 body {
