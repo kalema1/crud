@@ -13,10 +13,14 @@
   margin: 2rem 0;
 }
 
+.tableWrapper {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
 .table {
   border-collapse: collapse;
   width: 100%;
-  overflow-x: scroll;
 }
 
 .tableHeader {
