@@ -36,6 +36,11 @@
   color: var(--color-white);
   border-radius: 0.5rem;
   font-weight: 500;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #14532d;
 }
 
 /* ************************************** */
@@ -45,8 +50,9 @@
   .wrapper {
     padding: 1rem;
   }
+
   .button {
-    padding: 1rem 1.6rem;
+    padding: 1rem 1.2rem;
     font-size: 1.6rem;
   }
 

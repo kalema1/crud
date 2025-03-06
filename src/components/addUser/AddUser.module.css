@@ -45,6 +45,10 @@
   color: var(--color-white);
   border-radius: 0.5rem;
   font-weight: 500;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #14532d;
 }
 
 /* ************************************** */

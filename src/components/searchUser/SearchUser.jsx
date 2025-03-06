@@ -9,7 +9,11 @@ export default function SearchUser() {
             Search User
           </h2>
           <form className={styles.searchForm}>
-            <input type="text" className={styles.searchInput} />
+            <input
+              type="text"
+              placeholder="Name for User"
+              className={styles.searchInput}
+            />
             <button className={styles.button}>Search User</button>
           </form>
         </div>
