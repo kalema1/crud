@@ -21,3 +21,14 @@ export async function getUsers() {
     throw error;
   }
 }
+
+export async function deleteUser(userId) {
+  try {
+    const response = await axios.delete(`${url}/users/${userId}`);
+
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    throw error;
+  }
+}

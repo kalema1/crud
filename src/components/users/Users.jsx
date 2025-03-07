@@ -5,7 +5,7 @@ import LoadingSpinner from "../loader/LoadingSpinner";
 import { useUsers } from "./useUsers";
 
 export default function Users() {
-  const { isLoading, users, error } = useUsers();
+  const { isLoading, users, error, isDeleting, handleDeleteUser } = useUsers();
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -47,7 +47,11 @@ export default function Users() {
                         <button className={styles.btn}>
                           <IoIosCreate className={styles.editIcon} />
                         </button>
-                        <button className={styles.btn}>
+                        <button
+                          onClick={() => handleDeleteUser(user.id)}
+                          className={styles.btn}
+                          disabled={isDeleting}
+                        >
                           <IoMdTrash className={styles.deleteIcon} />
                         </button>
                       </div>
