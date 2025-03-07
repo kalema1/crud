@@ -1,19 +1,11 @@
 import { IoIosCreate, IoMdTrash } from "react-icons/io";
-import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Users.module.css";
-import { getUsers } from "../../services/apiUsers";
 import LoadingSpinner from "../loader/LoadingSpinner";
+import { useUsers } from "./useUsers";
 
 export default function Users() {
-  const {
-    data: users,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["users"],
-    queryFn: getUsers,
-  });
+  const { isLoading, users, error } = useUsers();
 
   if (isLoading) {
     return <LoadingSpinner />;
