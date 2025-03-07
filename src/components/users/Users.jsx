@@ -3,12 +3,17 @@ import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Users.module.css";
 import { getUsers } from "../../services/apiUsers";
+import LoadingSpinner from "../loader/LoadingSpinner";
 
 export default function Users() {
-  const { data: users } = useQuery({
+  const { data: users, isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: getUsers,
   });
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <section className={styles.usersSection}>
