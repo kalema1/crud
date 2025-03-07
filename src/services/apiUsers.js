@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const url = import.meta.env.VITE_API_DOMAIN;
-console.log(url);
 
 export async function getUsers() {
   try {
@@ -19,6 +18,6 @@ export async function getUsers() {
     return response.data;
   } catch (error) {
     console.log(error);
-    return [];
+    throw error;
   }
 }

@@ -76,3 +76,10 @@
   color: red;
   font-size: 2rem;
 }
+
+.errorMessage {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-text);
+  margin: 2rem 0;
+}

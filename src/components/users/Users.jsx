@@ -6,13 +6,25 @@ import { getUsers } from "../../services/apiUsers";
 import LoadingSpinner from "../loader/LoadingSpinner";
 
 export default function Users() {
-  const { data: users, isLoading } = useQuery({
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: getUsers,
   });
 
   if (isLoading) {
     return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <div className={styles.errorMessage}>
+        Error Occured during fetching data
+      </div>
+    );
   }
 
   return (
