@@ -32,3 +32,13 @@ export async function deleteUser(userId) {
     throw error;
   }
 }
+
+export async function createUser(newUser) {
+  try {
+    const response = await axios.post(`${url}/users`, newUser);
+    return response.data;
+  } catch (error) {
+    console.error("Error creating user:", error);
+    throw error;
+  }
+}

@@ -58,5 +58,12 @@ export function useUsers() {
     mutate(userID);
   }
 
-  return { isLoading, error, users, isDeleting, handleDeleteUser };
+  return {
+    isLoading,
+    error,
+    users,
+    isDeleting,
+    handleDeleteUser,
+    setUsers,
+  };
 }

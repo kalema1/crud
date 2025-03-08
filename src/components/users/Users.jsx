@@ -2,10 +2,12 @@ import { IoIosCreate, IoMdTrash } from "react-icons/io";
 
 import styles from "./Users.module.css";
 import LoadingSpinner from "../loader/LoadingSpinner";
-import { useUsers } from "./useUsers";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export default function Users() {
-  const { isLoading, users, error, isDeleting, handleDeleteUser } = useUsers();
+  const { isLoading, users, error, isDeleting, handleDeleteUser, handleEdit } =
+    useContext(UserContext);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -44,7 +46,10 @@ export default function Users() {
                     <td className={styles.tableData}>{user.phone}</td>
                     <td className={styles.tableData}>
                       <div className={styles.btnWrapper}>
-                        <button className={styles.btn}>
+                        <button
+                          onClick={() => handleEdit(user)}
+                          className={styles.btn}
+                        >
                           <IoIosCreate className={styles.editIcon} />
                         </button>
                         <button
