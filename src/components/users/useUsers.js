@@ -3,9 +3,12 @@ import toast from "react-hot-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { deleteUser, getUsers } from "../../services/apiUsers";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function useUsers() {
   const [users, setUsers] = useState([]);
+
+  const { setItems } = useLocalStorage("users");
 
   // Load users from local storage if available
   useEffect(() => {
@@ -43,7 +46,8 @@ export function useUsers() {
       // Update the local state by filtering out the deleted user
       const updatedUsers = users.filter((user) => user.id !== userId);
       setUsers(updatedUsers);
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      //localStorage.setItem("users", JSON.stringify(updatedUsers));
+      setItems(updatedUsers);
 
       // Invalidate the users query to refetch fresh data (optional)
       queryClient.invalidateQueries({ queryKey: ["users"] });

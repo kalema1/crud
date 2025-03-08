@@ -47,7 +47,7 @@ function UserProvider({ children }) {
       toast.success("User Created Successfully");
 
       const updatedUsers = [...users, newUser];
-      setUsers(updatedUsers);
+      //setUsers(updatedUsers);
       localStorage.setItem("users", JSON.stringify(updatedUsers));
 
       queryClient.invalidateQueries({ queryKey: ["users"] });
@@ -76,9 +76,9 @@ function UserProvider({ children }) {
       setUsers(updatedUsers);
       setEditingUser(null);
     } else {
-      const newUser = { id: users.length + 1, ...formState };
+      const newUser = { id: Date.now(), ...formState };
       setUsers([...users, newUser]);
-      mutate(formState);
+      mutate(newUser);
     }
     dispatch({ type: "RESET" });
   };
