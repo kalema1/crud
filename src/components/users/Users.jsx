@@ -6,8 +6,14 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 
 export default function Users() {
-  const { isLoading, users, error, isDeleting, handleDeleteUser, handleEdit } =
-    useContext(UserContext);
+  const {
+    isLoading,
+    error,
+    isDeleting,
+    handleDeleteUser,
+    handleEdit,
+    filteredUsers,
+  } = useContext(UserContext);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -39,7 +45,7 @@ export default function Users() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
+                {filteredUsers.map((user) => (
                   <tr key={user.id} className={styles.tableRow}>
                     <td className={styles.tableData}>{user.name}</td>
                     <td className={styles.tableData}>{user.email}</td>

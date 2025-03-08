@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import styles from "./SearchUser.module.css";
+import { UserContext } from "../../context/UserContext";
 
 export default function SearchUser() {
+  const { searchRef, handleSearch, searchTerm, handleSearchInputChange } =
+    useContext(UserContext);
   return (
     <section className={styles.searchSection}>
       <div className="container">
@@ -8,10 +12,16 @@ export default function SearchUser() {
           <h2 className={`header-secondary ${styles.searchheader}`}>
             Search User
           </h2>
-          <form className={styles.searchForm}>
+          <form
+            ref={searchRef}
+            className={styles.searchForm}
+            onSubmit={handleSearch}
+          >
             <input
               type="text"
-              placeholder="Name for User"
+              value={searchTerm}
+              onChange={handleSearchInputChange}
+              placeholder="Search Users by Name"
               className={styles.searchInput}
             />
             <button className={styles.button}>Search User</button>

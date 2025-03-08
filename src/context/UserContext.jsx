@@ -1,4 +1,11 @@
-import { createContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -26,6 +33,8 @@ const formReducer = (state, action) => {
 function UserProvider({ children }) {
   const [formState, dispatch] = useReducer(formReducer, initialState);
   const [editingUser, setEditingUser] = useState(null);
+  const searchRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { users, setUsers, isLoading, error, isDeleting, handleDeleteUser } =
     useUsers();
@@ -79,6 +88,29 @@ function UserProvider({ children }) {
     dispatch({ type: "SET_FORM", payload: user });
   };
 
+  // This function filters users by name using a search input field, optimized with useRef and useCallback.
+  const handleSearch = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (!searchTerm) {
+        return;
+      }
+
+      console.log(`Searching for: ${searchTerm}`);
+    },
+    [searchTerm]
+  );
+
+  const handleSearchInputChange = useCallback((event) => {
+    setSearchTerm(event.target.value);
+  }, []);
+
+  const filteredUsers = useMemo(() => {
+    return users.filter((user) =>
+      user.name.toLowerCase().includes(searchTerm?.toLowerCase())
+    );
+  }, [users, searchTerm]);
+
   return (
     <UserContext.Provider
       value={{
@@ -94,6 +126,11 @@ function UserProvider({ children }) {
         isDeleting,
         handleDeleteUser,
         editingUser,
+        handleSearch,
+        filteredUsers,
+        searchRef,
+        searchTerm,
+        handleSearchInputChange,
       }}
     >
       {children}
