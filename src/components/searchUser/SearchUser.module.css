@@ -9,6 +9,13 @@
   padding: 2rem;
 }
 
+.headingPrimary {
+  color: var(--color-white);
+  margin: 2rem 0;
+  font-size: 4.4rem;
+  text-align: center;
+}
+
 .searchheader {
   color: var(--color-white);
 }

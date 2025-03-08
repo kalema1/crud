@@ -9,6 +9,7 @@ export default function SearchUser() {
     <section className={styles.searchSection}>
       <div className="container">
         <div className={styles.wrapper}>
+          <h1 className={styles.headingPrimary}>USER MANAGEMENT</h1>
           <h2 className={`header-secondary ${styles.searchheader}`}>
             Search User
           </h2>
